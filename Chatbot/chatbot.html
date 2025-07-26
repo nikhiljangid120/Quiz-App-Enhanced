@@ -1,63 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Quiz-App Chatbot</title>
-  <link rel="stylesheet" href="chatbot.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🤖 Quiz-App Chatbot</title>
+  <link rel="stylesheet" href="chatbot.css">
 </head>
 <body>
+  <button id="themeToggle">🌙 Switch to Dark Mode</button>
   <div id="chatbox">
-    <button id="themeToggle">🌙 Switch to Dark Mode</button>
-
     <h2>🤖 Quiz-App Chatbot</h2>
     <div id="messages"></div>
-
     <div id="inputArea">
-      <input type="text" id="userInput" placeholder="Ask me about Quiz-App..." />
+      <input type="text" id="userInput" placeholder="Ask about Quiz-App or anything else...">
       <button onclick="handleChat()">Send</button>
     </div>
-
-    <button onclick="toggleExamples()" class="toggle-btn">🎯 Show Prompt Examples</button>
-    <button onclick="clearChat()" class="clear-btn">🧹 Clear Chat</button>
-
-    <ul id="examples" style="display:none;">
+    <div id="actionButtons">
+      <button class="toggle-btn" onclick="toggleExamples()">🎯 Show Example Questions</button>
+      <button class="clear-btn" onclick="clearChat()">🧹 Clear Chat</button>
+    </div>
+    <ul id="examples" style="display: none;">
+      <h4>📚 Quiz-App Questions:</h4>
       <li onclick="fillPrompt(this)">What is Quiz-App?</li>
-      <li onclick="fillPrompt(this)">How to start a quiz?</li>
+      <li onclick="fillPrompt(this)">Who created Quiz-App?</li>
+      <li onclick="fillPrompt(this)">What features does it have?</li>
+      <li onclick="fillPrompt(this)">How to contribute?</li>
       <li onclick="fillPrompt(this)">What topics are covered?</li>
-      <li onclick="fillPrompt(this)">How can I contribute?</li>
-      <li onclick="fillPrompt(this)">Is it mobile responsive?</li>
-      <li onclick="fillPrompt(this)">Can I suggest a new quiz topic?</li>
+      <li onclick="fillPrompt(this)">How to set it up locally?</li>
+      
+      <h4>💬 General Questions:</h4>
+      <li onclick="fillPrompt(this)">What's the weather today?</li>
+      <li onclick="fillPrompt(this)">Explain artificial intelligence</li>
+      <li onclick="fillPrompt(this)">Tell me a programming joke</li>
+      <li onclick="fillPrompt(this)">How does machine learning work?</li>
+      <li onclick="fillPrompt(this)">What are the latest tech trends?</li>
+      <li onclick="fillPrompt(this)">Explain blockchain technology</li>
     </ul>
   </div>
-
-  
-  <script>
-    const rotatingPlaceholders = [
-      "Ask me about Quiz-App...",
-      "How to start a quiz?",
-      "What topics are covered?",
-      "How to contribute?",
-      "Is it mobile friendly?",
-      "How to install the app?",
-      "Can I create my own quizzes?",
-      "Who maintains this project?"
-    ];
-
-    let index = 0;
-    setInterval(() => {
-      const input = document.getElementById("userInput");
-      if (input) {
-        input.setAttribute("placeholder", rotatingPlaceholders[index]);
-        index = (index + 1) % rotatingPlaceholders.length;
-      }
-    }, 3000);
-  </script>
-
   <script src="chatbot.js"></script>
 </body>
 </html>
-
-
-
-
